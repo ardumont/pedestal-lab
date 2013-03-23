@@ -15,7 +15,8 @@
                  [ch.qos.logback/logback-classic "1.0.7"]
                  [org.slf4j/jul-to-slf4j "1.7.2"]
                  [org.slf4j/jcl-over-slf4j "1.7.2"]
-                 [org.slf4j/log4j-over-slf4j "1.7.2"]]
+                 [org.slf4j/log4j-over-slf4j "1.7.2"]
+                 [com.datomic/datomic-free "0.8.3826"]]
   :profiles {:dev {:source-paths ["dev"]}}
   :min-lein-version "2.0.0"
   :resource-paths ["config"]
