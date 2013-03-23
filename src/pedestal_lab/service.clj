@@ -13,8 +13,14 @@
   [request]
   (ring-resp/response "Hello World!"))
 
+(defn hello-who
+  [req]
+  (let [who (get-in req [:params :who])]
+    (ring-resp/response (str "Hello " who "!"))))
+
 (defroutes routes
-  [[["/" {:get home-page}
+  [[["/hello/:who" {:get hello-who}]
+    ["/" {:get home-page}
      ;; Set default interceptors for /about and any other paths under /
      ^:interceptors [(body-params/body-params)]
      ["/about" {:get about-page}]]]])
