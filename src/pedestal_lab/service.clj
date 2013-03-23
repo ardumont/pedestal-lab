@@ -1,9 +1,10 @@
 (ns pedestal-lab.service
-    (:require [io.pedestal.service.http :as bootstrap]
-              [io.pedestal.service.http.route :as route]
-              [io.pedestal.service.http.body-params :as body-params]
-              [io.pedestal.service.http.route.definition :refer [defroutes]]
-              [ring.util.response :as ring-resp]))
+  (:require [io.pedestal.service.http :as bootstrap]
+            [io.pedestal.service.http.route :as route]
+            [io.pedestal.service.http.body-params :as body-params]
+            [io.pedestal.service.http.route.definition :refer [defroutes]]
+            [ring.util.response :as ring-resp]
+            [pedestal-lab.peer :as peer :refer [results]]))
 
 (defn about-page
   [request]
@@ -13,13 +14,18 @@
   [request]
   (ring-resp/response "Hello World!"))
 
+(defn results-backend
+  [req]
+  (ring-resp/response (str "Hello colors! " (results))))
+
 (defn hello-who
   [req]
   (let [who (get-in req [:params :who])]
     (ring-resp/response (str "Hello " who "!"))))
 
 (defroutes routes
-  [[["/hello/:who" {:get hello-who}]
+  [[["/backend" {:get results-backend}]
+    ["/hello/:who" {:get hello-who}]
     ["/" {:get home-page}
      ;; Set default interceptors for /about and any other paths under /
      ^:interceptors [(body-params/body-params)]
