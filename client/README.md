@@ -1,4 +1,4 @@
-# helloworld-app
+# pedestal-app
 
 You may start the application by running the following commands:
 
@@ -8,7 +8,7 @@ lein repl
 (run)
 ```
 
-Once it is started, browse to [http://localhost:3000/helloworld-app-dev.html](http://localhost:3000/helloworld-app-dev.html).
+Once it is started, browse to [http://localhost:3000/pedestal-app-dev.html](http://localhost:3000/pedestal-app-dev.html).
 
 
 ## Links

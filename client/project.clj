@@ -9,14 +9,14 @@
 ;
 ; You must not remove this notice, or any other, from this software.
 
-(defproject helloworld-app "0.1.0-SNAPSHOT"
-  :description "FIXME: write description"
+(defproject pedestal-app "0.1.0-SNAPSHOT"
+  :description "client part - pedestal learning playground"
   :dependencies [[org.clojure/clojure "1.5.0"]
                  [org.clojure/tools.namespace "0.2.1"]
                  [domina "1.0.1"]
-                 [ch.qos.logback/logback-classic "1.0.6"]
                  [org.clojure/clojurescript "0.0-1450"]
-                 [io.pedestal/pedestal.app "0.1.2"]
+                 ;;                  [ch.qos.logback/logback-classic "1.0.6"]
+                 [io.pedestal/pedestal.app "0.1.2" :exclusions [ch.qos.logback/logback-classic]]
                  [io.pedestal/pedestal.app-tools "0.1.2"]]
   :profiles {:dev {:source-paths ["dev"]}}
   :source-paths ["app/src" "app/templates"]

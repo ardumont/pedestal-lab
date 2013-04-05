@@ -9,7 +9,7 @@
 ;
 ; You must not remove this notice, or any other, from this software.
 
-(ns helloworld-app.app
+(ns pedestal-app.app
   (:require [io.pedestal.app :as app]
             [io.pedestal.app.protocols :as p]
             [io.pedestal.app.render :as render]
@@ -39,4 +39,3 @@
     (render/consume-app-model app render-fn)
     (receive-input (:input app))
     (app/begin app)))
-
